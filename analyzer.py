@@ -1,5 +1,6 @@
+import time
 import random
-import demos
+from demos import quicksort, mergesort
 
 def create_random_list(size, max_val):
     ran_list=[]
@@ -9,6 +10,13 @@ def create_random_list(size, max_val):
 
 size = int(input("What size of list do u want to create? "))
 max = int(input("What is the max value of the range? "))
-print(type(size), type(max))
 
-print(create_random_list(size, max))
+l = create_random_list(size,max)
+tic = time.time()
+quicksort(l)
+toc = time.time()
+print("Quicksort elasped time --> ", toc-tic)
+tic = time.time()
+mergesort(l)
+toc = time.time()
+print("Mergesort elasped time --> ", toc-tic)
