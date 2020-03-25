@@ -49,3 +49,12 @@ def mergesort(arr):
         l1 = mergesort(arr[:middle])
         l2 = mergesort(arr[middle:])
         return merge_sorted(l1,l2)
+
+def bubblesort(arr):
+    swap_happened = True
+    while swap_happened:
+        swap_happened = False
+        for num in range(len(arr)-1):
+            if arr[num] > arr[num+1]:
+                swap_happened = True
+                arr[num], arr[num+1] = arr[num+1], arr[num]
