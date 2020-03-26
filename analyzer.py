@@ -14,13 +14,17 @@ def analyze_func(func_name, arr):
     func_name(arr)
     toc = time.time()
     seconds = toc - tic
-    print("{}\t -> elasped time: {} seconds" .format(func_name.__name__.capitalize(), seconds))
+    print("{}\t -> elasped time: {:.5f} seconds" .format(func_name.__name__.capitalize(), seconds))
 
 
 size = int(input("What size of list do u want to create? "))
 max = int(input("What is the max value of the range? "))
+run = int(input("How many times do you want to run: "))
 
-l = create_random_list(size,max)
-analyze_func(bubblesort,l.copy()) #use copy to avoid sorted array being parsed 
-analyze_func(quicksort,l)
-analyze_func(mergesort,l)
+for num in range(run):
+    print("Run: {}".format(num+1))
+    l = create_random_list(size,max)
+    analyze_func(bubblesort,l.copy()) #use copy to avoid sorted array being parsed
+    analyze_func(quicksort,l)
+    analyze_func(mergesort,l)
+    print("--" * 30)
